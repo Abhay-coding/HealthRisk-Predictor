@@ -6,17 +6,13 @@
 ## 📌 Project Overview
 
 The **Health Risk Classification System** is a supervised machine learning project
-developed to classify individuals as **Healthy** or **Unhealthy** based on their
-physiological measurements, lifestyle habits, and medical history.
+developed to classify individuals as **Healthy** or **Unhealthy** based on
+physiological measurements, lifestyle habits, and medical history data.
 
-Biomedical research organizations such as **NovaGen Research Labs** conduct
-large-scale population health studies to identify individuals who may be at
-higher health risk. Manual analysis of such data is often slow, inconsistent,
-and difficult to scale.
-
-This project addresses these challenges by building a **data-driven machine
-learning pipeline** that enables fast, consistent, and accurate health risk
-classification.
+The project is designed in the context of **NovaGen Research Labs**, a biomedical
+research institute conducting large-scale population health studies. The goal is
+to support data-driven decision-making by accurately identifying individuals who
+may be at higher health risk.
 
 **Target Prediction:**  
 ✅ **Healthy (1)**  
@@ -24,19 +20,32 @@ classification.
 
 ---
 
-## 🎯 Problem Statement
+## 🧩 Problem Statement
 
-Healthcare research institutes face two major challenges:
+NovaGen Research Labs conducts large-scale population health studies to better
+understand how underlying health conditions influence disease risk and long-term
+health outcomes. Every year, the institute recruits thousands of volunteers who
+undergo medical examinations, lifestyle assessments, and clinical tests.
 
-### ⚠️ Key Challenges
-1. **Failing to identify high-risk individuals** → delayed intervention and poor outcomes  
-2. **Incorrectly classifying healthy individuals as high-risk** → inefficient use of resources  
+Despite the availability of extensive health data, researchers currently lack a
+reliable and consistent method to distinguish individuals with generally healthy
+profiles from those who may be at higher health risk. This limitation reduces the
+effectiveness of participant selection and stratified analysis in research studies.
 
-### ✅ Solution
-A supervised machine learning system that:
-- Learns from historical health records
-- Accurately classifies individuals based on risk
-- Supports population-level health analysis and decision-making
+To address this challenge, NovaGen has compiled a dataset containing health records
+from **9,800 individuals**, collected across multiple observational studies. Each
+record represents a unique participant to ensure independent observations and
+avoid sampling bias. The dataset includes a combination of **numerical and
+categorical health indicators**, such as physiological measurements, lifestyle
+factors, and medical history attributes.
+
+As a **Data Scientist**, the objective is to develop a supervised machine learning
+model that accurately classifies individuals as **healthy** or **unhealthy** based
+on the available health data. This classification supports key research decisions,
+including:
+
+- Selecting eligible participants for clinical trials and longitudinal studies  
+- Stratifying populations for risk-based analysis and outcome comparison  
 
 ---
 
@@ -52,45 +61,46 @@ A supervised machine learning system that:
 
 ## 📂 Dataset Description
 
-Each record represents a unique individual and contains a combination of
-numerical and categorical health indicators.
+Each record represents a single individual and contains a mix of numerical and
+categorical health-related features.
 
 ### 🧾 Key Features
 
-- **Physiological Measurements**
-  - Age
-  - BMI
-  - Blood Pressure
-  - Cholesterol
-  - Glucose Level
-  - Heart Rate
+**Physiological Measurements**
+- Age  
+- BMI  
+- Blood Pressure  
+- Cholesterol  
+- Glucose Level  
+- Heart Rate  
 
-- **Lifestyle Factors**
-  - Sleep Hours
-  - Exercise Hours
-  - Water Intake
-  - Stress Level
-  - Smoking
-  - Alcohol Consumption
+**Lifestyle Factors**
+- Sleep Hours  
+- Exercise Hours  
+- Water Intake  
+- Stress Level  
+- Smoking  
+- Alcohol Consumption  
 
-- **Health & Medical Information**
-  - Mental Health Score
-  - Physical Activity Level
-  - Medical History
-  - Allergies
-  - Diet Type
-  - Blood Group
+**Health & Medical Information**
+- Mental Health Score  
+- Physical Activity Level  
+- Medical History  
+- Allergies  
+- Diet Type  
+- Blood Group  
 
 ---
 
 ## 🔍 Exploratory Data Analysis (EDA)
 
-Exploratory Data Analysis was performed to understand the dataset and uncover
-important patterns, including:
-- Distribution of physiological and lifestyle features
-- Relationship between health habits and risk classification
-- Impact of medical history and stress levels on health outcomes
-- Identification of feature correlations and data balance
+Exploratory Data Analysis was performed to gain insights into the dataset and
+understand relationships between features and health outcomes. This included:
+
+- Distribution analysis of physiological and lifestyle features  
+- Examination of health risk patterns across different lifestyle behaviors  
+- Impact of medical history and stress levels on health classification  
+- Identification of correlations and potential feature importance  
 
 ---
 
@@ -98,24 +108,25 @@ important patterns, including:
 
 - Numerical features were cleaned and used directly.
 - Categorical features were initially one-hot encoded.
-- One-hot encoded columns related to **diet type** and **blood group** were
-  merged back into single mapped categorical features to reduce dimensionality.
+- One-hot encoded columns related to **diet type** and **blood group** were merged
+  into single mapped categorical features to reduce dimensionality.
 
 ### Why Mapping Instead of One-Hot Encoding?
 
-The final models used are **tree-based classifiers**, which do not rely on
-distance-based or linear assumptions between feature values.  
-Therefore, numeric mapping:
-- Reduces feature dimensionality
-- Improves interpretability
-- Is computationally efficient
-- Remains technically correct for tree-based models
+The final models used in this project are **tree-based classifiers**, which do not
+depend on distance-based or linear assumptions between feature values. As a result,
+numeric mapping of categorical variables is:
+
+- Technically appropriate  
+- Computationally efficient  
+- Easier to interpret  
+- Suitable for tree-based algorithms  
 
 ---
 
 ## 🤖 Models Implemented
 
-Multiple supervised machine learning models were trained and evaluated:
+The following supervised machine learning models were trained and evaluated:
 
 - Logistic Regression  
 - K-Nearest Neighbors (KNN)  
@@ -128,9 +139,9 @@ Multiple supervised machine learning models were trained and evaluated:
 ## 📊 Results & Model Comparison
 
 ### 🔍 Evaluation Metric
-**Recall** was selected as the primary evaluation metric, as correctly identifying
-individuals at higher health risk is more important than minimizing false positives
-in a healthcare context.
+**Recall** was chosen as the primary evaluation metric, as correctly identifying
+individuals at higher health risk is more critical in a healthcare context than
+minimizing false positives.
 
 ### 📈 Model Performance (Recall)
 
@@ -146,37 +157,31 @@ in a healthcare context.
 
 ## 🏆 Best Model Selection
 
-Based on recall performance, **Random Forest** was selected as the final model
-for the NovaGen Health Risk Classification System.
+Based on recall performance, **Random Forest** was selected as the final model for
+the Health Risk Classification System.
 
 - **Recall:** 95.8%  
 - **Accuracy:** 93.7%  
 
-The high recall demonstrates the model’s effectiveness in identifying
-individuals who are at higher health risk, aligning well with real-world
-healthcare and research objectives.
+The high recall indicates that the model is highly effective at identifying
+individuals who may be at higher health risk, aligning well with the objectives
+of population health research and early risk detection.
 
 ---
 
 ## 🎯 Project Outcomes
 
 This project demonstrates:
-- End-to-end supervised ML pipeline development
-- Thoughtful feature engineering and encoding decisions
-- Comparison of multiple classification algorithms
-- Appropriate metric selection for healthcare applications
-- Practical application of machine learning to real-world health data
+
+- End-to-end supervised ML pipeline development  
+- Thoughtful feature engineering and encoding decisions  
+- Comparative evaluation of multiple classification models  
+- Appropriate metric selection for healthcare applications  
+- Practical application of machine learning to real-world health data  
 
 ---
 
 ## 📌 Note
 
-This repository represents an **academic machine learning project**
-developed for learning, evaluation, and demonstration purposes.
-
-- **Accuracy:** 93.7%  
-
-The high recall indicates that the model is highly effective at identifying
-individuals who are at higher health risk, which aligns with the objectives
-of population health analysis and early risk detection.
-
+This repository represents an **academic machine learning project** developed
+for learning, evaluation, and demonstration purposes.
